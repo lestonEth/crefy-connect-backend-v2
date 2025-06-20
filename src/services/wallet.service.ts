@@ -28,7 +28,7 @@ export class WalletService {
                 name: name,
                 isActive: isActive,
                 otp: otp,
-                appId: appId,
+                appId: Math.random().toString(36).substring(2, 18),
                 otpExpiry: otpExpiry,
                 privateKey: encrypt(walletInfo.privateKey),
                 mnemonic: encrypt(walletInfo.mnemonic),

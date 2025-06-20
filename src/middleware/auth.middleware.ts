@@ -41,7 +41,7 @@ export const requireAuth = async (req: Request, res: Response, next: NextFunctio
             console.log('crefyId is required');
             return res.status(400).json({ error: 'crefyId is required' });
         }
-        const app = await App.findOne({ appId: crefyId });
+        const app = await App.findOne({ apiKey: crefyId });
         if (!app) {
             console.log('App not found');
             return res.status(404).json({ error: 'App not found' });
