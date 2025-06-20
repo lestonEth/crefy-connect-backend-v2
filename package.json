@@ -33,7 +33,7 @@
     "start": "node dest/server.js",
     "dev": "concurrently \"nodemon\" \"tsc -w\"",
     "serve": "nodemon src/server.ts",
-    "deploy": "pm2 start  dest/server.js --name crefy-connect-backend-v1 --instances 2"
+    "deploy": "pm2 start dest/server.js --name crefy-connect-backend-v1 --instances 2"
   },
   "keywords": [],
   "author": "",
