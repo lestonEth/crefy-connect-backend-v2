@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const email_controller_1 = require("../controllers/email.controller");
+const session_middleware_1 = require("../middleware/session.middleware");
+const auth_middleware_1 = require("../middleware/auth.middleware");
+const router = (0, express_1.Router)();
+router.post('/initiate', session_middleware_1.handleSessionSocket, auth_middleware_1.requireAuth, email_controller_1.EmailController.initiateEmailWallet);
+router.post('/verify', session_middleware_1.handleSessionSocket, auth_middleware_1.requireAuth, email_controller_1.EmailController.verifyEmail);
+router.get('/status', session_middleware_1.handleSessionSocket, auth_middleware_1.requireAuth, email_controller_1.EmailController.checkEmailVerification);
+exports.default = router;
